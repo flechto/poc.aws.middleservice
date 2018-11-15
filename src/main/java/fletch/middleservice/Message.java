@@ -1,5 +1,7 @@
 package fletch.middleservice;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,8 +13,15 @@ public class Message {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private final String title;
-    private final String text;
+    @JsonProperty
+    private String title;
+
+    @JsonProperty
+    private String text;
+
+    public Message() {
+
+    }
 
     public Message(String title, String text) {
         this.title = title;
@@ -23,11 +32,24 @@ public class Message {
         return title;
     }
 
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getText() {
         return text;
     }
 
+    public void setText(String text) {
+        this.text = text;
+    }
+
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

@@ -20,7 +20,7 @@ class MessageHandlerSpec extends Specification {
         messageHandler.handle(message)
 
         then: "It saves it to the repo"
-        1 * messageRepository.save(message) >>> message
+        1 * messageRepository.save {it.title == message.title && it.text == message.text} >>> message
 
         and: "Emits a created event"
         1* messageEvents.emit(message)

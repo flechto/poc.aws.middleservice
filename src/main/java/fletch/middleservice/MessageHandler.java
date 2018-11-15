@@ -1,7 +1,11 @@
 package fletch.middleservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.Payload;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MessageHandler {
 
     private final MessageRepository messageRepository;
@@ -16,7 +20,8 @@ public class MessageHandler {
         this.messageEvents = messageEvents;
     }
 
-    public void handle(Message message) {
+    @MessageMapping("create")
+    public void handle(@Payload Message message) {
 
         Message saved = messageRepository.save(message);
 
