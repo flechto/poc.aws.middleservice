@@ -4,3 +4,6 @@ Resources:
   createQueue:
     Type: AWS::SQS::Queue
     Properties: {}
+  createdTopic:
+    Type: AWS::SNS::Topic
+    Properties: {}
