@@ -1,0 +1,13 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+  datasource:
+    url: jdbc:mysql://localhost:32769/middle
+    username: root
+    password: boom
+
+cloud:
+  aws:
+    region:
+      static: us-east-1
