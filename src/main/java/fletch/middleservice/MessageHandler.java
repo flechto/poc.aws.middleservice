@@ -20,7 +20,7 @@ public class MessageHandler {
         this.messageEvents = messageEvents;
     }
 
-    @MessageMapping("create")
+    @MessageMapping("${incoming.name}")
     public void handle(@Payload Message message) {
 
         Message saved = messageRepository.save(message);

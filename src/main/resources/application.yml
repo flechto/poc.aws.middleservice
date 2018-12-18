@@ -11,3 +11,9 @@ cloud:
   aws:
     region:
       static: us-east-1
+
+incoming:
+  name: ${INCOMING_NAME:create}
+
+outgoing:
+  topic: ${OUTGOING_TOPIC:created}
